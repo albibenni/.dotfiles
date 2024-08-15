@@ -5,6 +5,7 @@ alias python=python3
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME=amuse
+#amuse, robbyrussell, af-magic
 
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
