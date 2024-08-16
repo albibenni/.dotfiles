@@ -25,12 +25,6 @@ esac
 # bun completions
 [ -s "/Users/benni/.bun/_bun" ] && source "/Users/benni/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/benni/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/benni/Downloads/google-cloud-sdk/path.zsh.inc'; fi
