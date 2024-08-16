@@ -20,21 +20,15 @@ export GIT_EDITOR=$VIM
 #export N_PREFIX="$HOME/.local/n"
 export N_PREFIX="/usr/local/n"
 export DOTFILES=$HOME/.dotfiles
-
-# bun
-#export BUN_INSTALL="$HOME/.bun"
-#export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
 
 addToPathFront $HOME/.zig
-addToPathFront $HOME/bun/bin
+addToPathFront $BUN_INSTALL/bin
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.config/tmux/scripts
 addToPathFront $HOME/.config/scripts
 addToPathFront $HOME/.local/bin
-#addToPathFront $HOME/.local/n/bin/
 addToPathFront $N_PREFIX/bin/
-# addToPathFront $HOME/.local/go/bin
-#addToPathFront $HOME/go/bin
 addToPath $GOROOT/bin
 addToPath $GOPATH/bin
 
