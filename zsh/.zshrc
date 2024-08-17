@@ -13,22 +13,92 @@ export LC_CTYPE=en_US.UTF-8
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh_profile
 
-# pnpm
-export PNPM_HOME="/Users/benni/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-# bun completions
-[ -s "/Users/benni/.bun/_bun" ] && source "/Users/benni/.bun/_bun"
+export XDG_CONFIG_HOME=$HOME/.config
+
+PERSONAL=$XDG_CONFIG_HOME/personal
+source $PERSONAL/env
+for i in `find -L $PERSONAL`; do
+    source $i
+done
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
+
+export NRDP="$HOME/work/nrdp"
+export NRDP_BUILDS="$HOME/work/builds"
+export CC="clang-12"
+export CXX="clang++-12"
+export PYTHONBREAKPOINT="pudb.set_trace"
+#export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export GIT_EDITOR=$VIM
+#export N_PREFIX="$HOME/.local/n"
+export N_PREFIX="/usr/local/n"
+export DOTFILES=$HOME/.dotfiles
+export BUN_INSTALL="$HOME/.bun"
+
+addToPathFront $HOME/.zig
+addToPathFront $BUN_INSTALL/bin
+addToPathFront $HOME/.local/.npm-global/bin
+addToPathFront $HOME/.config/tmux/scripts
+addToPathFront $HOME/.config/scripts
+addToPathFront $HOME/.local/bin
+addToPathFront $N_PREFIX/bin/
+addToPath /usr/local/go/bin
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/benni/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/benni/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/benni/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/benni/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^s "source ~/.zshrc\n"
 
+# catr() {
+#     tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
+# }
+#
+# validateYaml() {
+#     python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' < $1
+# }
+#
+# goWork() {
+#     cp ~/.npm_work_rc ~/.npmrc
+# }
+#
+# goPersonal() {
+#     cp ~/.npm_personal_rc ~/.npmrc
+# }
+#
+# addThrottle() {
+#     local kbs="kbps"
+#     echo $kbs
+#     echo "About to throttle to $1 $kbs"
+#     echo "sudo tc qdisc add dev wlp59s0 handle 1: root htb default 11"
+#     echo "sudo tc class add dev wlp59s0 parent 1: classid 1:1 htb rate $1$kbs"
+#     echo "sudo tc class add dev wlp59s0 parent 1:1 classid 1:11 htb rate $1$kbs"
+#     sudo tc qdisc add dev wlp59s0 handle 1: root htb default 11
+#     sudo tc class add dev wlp59s0 parent 1: classid 1:1 htb rate $1$kbs
+#     sudo tc class add dev wlp59s0 parent 1:1 classid 1:11 htb rate $1$kbs
+# }
+#
+# removeThrottle() {
+#     sudo tc qdisc del dev wlp59s0 root
+# }
+#
+# cat1Line() {
+#     cat $1 | tr -d "\n"
+# }
+#
+# ioloop() {
+#     FIFO=$(mktemp -u /tmp/ioloop_$$_XXXXXX ) &&
+#     trap "rm -f $FIFO" EXIT &&
+#     mkfifo $FIFO &&
+#     ( : <$FIFO & ) &&    # avoid deadlock on opening pipe
+#     exec >$FIFO <$FIFO
+# }
+#
+# eslintify() {
+#     cat $1 > /tmp/file_to_eslint
+#     npx eslint
+# }
+export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux64/bin"
