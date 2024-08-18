@@ -13,6 +13,9 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/thunderstorm-sea.png
 exec_always for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
 
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+
 # SAVE THE DAY - flatpack apps
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id rofi -show combi
