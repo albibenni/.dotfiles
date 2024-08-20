@@ -37,7 +37,10 @@ export GIT_EDITOR=$VIM
 #export N_PREFIX="$HOME/.local/n"
 export N_PREFIX="/usr/local/n"
 export DOTFILES=$HOME/.dotfiles
+export CONFIG=$HOME/.config
 export BUN_INSTALL="$HOME/.bun"
+export PATH=$CONFIG/i3/i3exit:$PATH
+export PATH=$PATH:$CONFIG/i3
 
 addToPathFront $HOME/.zig
 addToPathFront $BUN_INSTALL/bin
@@ -46,6 +49,7 @@ addToPathFront $HOME/.config/tmux/scripts
 addToPathFront $HOME/.config/scripts
 addToPathFront $HOME/.local/bin
 addToPathFront $N_PREFIX/bin/
+addToPathFront $CONFIG/i3
 addToPath /usr/local/go/bin
 
 
