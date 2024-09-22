@@ -1,1 +1,5 @@
 tmux/.config/tmux/plugins/
+bin/.local/bin/ansible*
+ssh/.ssh/id*
+ssh/.ssh/missoun*
+ssh/.ssh/known*
