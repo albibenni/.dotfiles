@@ -1,0 +1,42 @@
+#!/bin/bash
+
+STATUS=0
+declare -a files=(
+gnome-terminal
+/home/benni/.local/bin/chrome-key
+"flatpak run org.mozilla.Thunderbird"
+"flatpak run org.mozilla.Thunderbird"
+obsidian
+discord
+)
+
+for file in "${files[@]}"
+    do
+        echo "running $file."
+        $file&
+        STATUS=$?
+        if [ $STATUS -eq 0 ]; then
+            echo "Working without errors $file."
+        else
+            echo "$file not running"
+            # You can add more detailed error handling here
+            case $EXIT_STATUS in
+                "1")
+                    echo "General error occurred"
+                    ;;
+                "2")
+                    echo "Misuse of shell builtins"
+                    ;;
+                "126")
+                    echo "Command invoked cannot execute"
+                    ;;
+                127)
+                    echo "Command not found"
+                    ;;
+                *)
+                    echo "Unknown error occurred"
+                    ;;
+            esac
+          exit 1
+        fi
+done
