@@ -38,9 +38,12 @@ export GIT_EDITOR=$VIM
 export N_PREFIX="/usr/local/n"
 export DOTFILES=$HOME/.dotfiles
 export CONFIG=$HOME/.config
+export BIN=$HOME/.config/bin
 export BUN_INSTALL="$HOME/.bun"
+
 export PATH=$CONFIG/i3/i3exit:$PATH
 export PATH=$PATH:$CONFIG/i3
+export PATH=$PATH:$BIN/startup
 
 addToPathFront $HOME/.zig
 addToPathFront $BUN_INSTALL/bin
