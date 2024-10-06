@@ -5,7 +5,6 @@ declare -a files=(
 gnome-terminal
 /home/benni/.local/bin/chrome-key
 "flatpak run org.mozilla.Thunderbird"
-"flatpak run org.mozilla.Thunderbird"
 obsidian
 discord
 )
