@@ -111,3 +111,11 @@ bindkey -s ^s "source ~/.zshrc\n"
 # }
 export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# pnpm
+export PNPM_HOME="/home/benni/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
